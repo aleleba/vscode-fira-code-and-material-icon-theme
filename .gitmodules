@@ -1,0 +1,3 @@
+[submodule "material-icon-theme"]
+	path = material-icon-theme
+	url = git@github.com:PKief/vscode-material-icon-theme.git

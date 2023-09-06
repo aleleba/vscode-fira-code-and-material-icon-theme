@@ -1,0 +1,67 @@
+Index: vscode-fira-code-and-material-icon-theme/material-icon-theme/src/icons/generator/jsonGenerator.ts
+===================================================================
+--- vscode-fira-code-and-material-icon-theme.orig/material-icon-theme/src/icons/generator/jsonGenerator.ts
++++ vscode-fira-code-and-material-icon-theme/material-icon-theme/src/icons/generator/jsonGenerator.ts
+@@ -34,6 +34,20 @@ export const generateIconConfigurationOb
+   options: IconJsonOptions
+ ): IconConfiguration => {
+   const iconConfig = merge({}, new IconConfiguration(), { options });
++  const fonts = [
++    {
++      id: 'Fira Code',
++      src: [
++        {
++          path: './fira-code-vf.woff',
++          format: 'woff',
++        },
++      ],
++      weight: 'normal',
++      style: 'normal',
++      size: '100%',
++    },
++  ];
+   const languageIconDefinitions = loadLanguageIconDefinitions(
+     languageIcons,
+     iconConfig,
+@@ -50,12 +64,19 @@ export const generateIconConfigurationOb
+     options
+   );
+ 
+-  return merge(
++  let returnedObject = merge(
+     {},
+     languageIconDefinitions,
+     fileIconDefinitions,
+     folderIconDefinitions
+   );
++
++  returnedObject = {
++    ...returnedObject,
++    fonts,
++  };
++
++  return returnedObject;
+ };
+ 
+ /**
+@@ -139,7 +160,7 @@ export const createIconFile = (
+     let iconJsonPath = __dirname;
+     // if executed via script
+     if (basename(__dirname) !== 'dist') {
+-      iconJsonPath = join(__dirname, '..', '..', '..', 'dist');
++      iconJsonPath = join(__dirname, '..', '..', '..', '..', 'dist');
+     }
+     writeFileSync(
+       join(iconJsonPath, iconJsonName),
+Index: vscode-fira-code-and-material-icon-theme/material-icon-theme/src/models/iconConfiguration.ts
+===================================================================
+--- vscode-fira-code-and-material-icon-theme.orig/material-icon-theme/src/models/iconConfiguration.ts
++++ vscode-fira-code-and-material-icon-theme/material-icon-theme/src/models/iconConfiguration.ts
+@@ -1,6 +1,7 @@
+ import { IconJsonOptions } from './';
+ 
+ export class IconConfiguration {
++  fonts?: Array<any>;
+   file?: string;
+   folder?: string;
+   folderExpanded?: string;
