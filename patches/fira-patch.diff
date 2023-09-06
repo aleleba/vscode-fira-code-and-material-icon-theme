@@ -1,3 +1,16 @@
+Index: vscode-fira-code-and-material-icon-theme/material-icon-theme/src/icons/generator/constants.ts
+===================================================================
+--- vscode-fira-code-and-material-icon-theme.orig/material-icon-theme/src/icons/generator/constants.ts
++++ vscode-fira-code-and-material-icon-theme/material-icon-theme/src/icons/generator/constants.ts
+@@ -1,7 +1,7 @@
+ /**
+  * Path where the icons are located.
+  */
+-export const iconFolderPath: string = './../icons/';
++export const iconFolderPath: string = './../material-icon-theme/icons/';
+ 
+ /**
+  * File name of the JSON file that will be generated to the out folder.
 Index: vscode-fira-code-and-material-icon-theme/material-icon-theme/src/icons/generator/jsonGenerator.ts
 ===================================================================
 --- vscode-fira-code-and-material-icon-theme.orig/material-icon-theme/src/icons/generator/jsonGenerator.ts
