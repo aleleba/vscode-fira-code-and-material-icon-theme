@@ -2,7 +2,7 @@
   "name": "fira-code-material-icon-theme",
   "displayName": "Fira Code and Material Icon Theme",
   "description": "Fira Code Font and Material Design Icons for Visual Studio Code",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "build": "npm run compile:dev && npm run generateJson",
     "check": "ts-node ./src/scripts/icons/checks",
